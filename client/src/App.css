@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.product-card-wrapper {
+  padding-left: 0px;
+  .product-title {
+    padding-left: 0px;
+  }
+}
+
+.products {
+  /* display: flex;
+  flex-direction: column; */
+  /* row-gap: 10px; */
+}
+
+.labels {
+  font-weight: 600;
+}

@@ -6,7 +6,6 @@ const port = 3001;
 
 const { initializeApp, cert } = require("firebase-admin/app");
 const { getFirestore } = require("firebase-admin/firestore");
-<<<<<<< HEAD
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -17,16 +16,14 @@ const msg = {
   text: "Run to the store and get your money back",
 };
 
-sgMail
-  .send(msg)
-  .then(() => {
-    console.log("Email sent successfully");
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-=======
->>>>>>> origin/main
+// sgMail
+//   .send(msg)
+//   .then(() => {
+//     console.log("Email sent successfully");
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
 
 const serviceAccount = require("./bestbuy-price-notifier-firebase-adminsdk-1buz2-8587967664.json");
 
@@ -44,7 +41,8 @@ class Product {
     pricePaid,
     currentPrice,
     purchaseDate,
-    daysLeftToPriceMatch
+    daysLeftToPriceMatch,
+    lastUpdated
   ) {
     this.sku = sku;
     this.url = url;
@@ -53,16 +51,12 @@ class Product {
     this.currentPrice = currentPrice;
     this.purchaseDate = purchaseDate;
     this.daysLeftToPriceMatch = daysLeftToPriceMatch;
+    this.lastUpdates = lastUpdated;
   }
 }
 
 app.use(cors());
 
-<<<<<<< HEAD
-app.get();
-
-=======
->>>>>>> origin/main
 app.get("/getData", async (req, res) => {
   const productUrl = req.query.productUrl;
   const userId = req.query.userId;
@@ -88,6 +82,8 @@ app.get("/getData", async (req, res) => {
     console.log("purchase date", purchaseDate);
     console.log(daysLeftToPriceMatch);
 
+    const today = new Date().toISOString();
+
     const product = new Product(
       productSku,
       productUrl,
@@ -95,7 +91,8 @@ app.get("/getData", async (req, res) => {
       pricePaid,
       curPrice,
       purchaseDate,
-      daysLeftToPriceMatch
+      daysLeftToPriceMatch,
+      today
     );
     console.log("sending:", product);
 

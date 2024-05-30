@@ -6,6 +6,7 @@ const port = 3001;
 
 const { initializeApp, cert } = require("firebase-admin/app");
 const { getFirestore } = require("firebase-admin/firestore");
+<<<<<<< HEAD
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -24,6 +25,8 @@ sgMail
   .catch((error) => {
     console.error(error);
   });
+=======
+>>>>>>> origin/main
 
 const serviceAccount = require("./bestbuy-price-notifier-firebase-adminsdk-1buz2-8587967664.json");
 
@@ -55,8 +58,11 @@ class Product {
 
 app.use(cors());
 
+<<<<<<< HEAD
 app.get();
 
+=======
+>>>>>>> origin/main
 app.get("/getData", async (req, res) => {
   const productUrl = req.query.productUrl;
   const userId = req.query.userId;

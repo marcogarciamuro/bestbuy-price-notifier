@@ -1,0 +1,8 @@
+.product-card-wrapper {
+  border: 1px solid white;
+  padding: 20px;
+  display: flex;
+  .product-detail {
+    width: 33.33333%;
+  }
+}

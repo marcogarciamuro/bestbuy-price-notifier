@@ -1,0 +1,21 @@
+.product-list .label-list {
+  display: flex;
+  margin: 0 20px;
+  font-weight: 600;
+  .label {
+    width: 33.33333%;
+  }
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.product-list .products {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
